@@ -14,10 +14,12 @@ grilling-viz は grilling の質問の組み立て方を前提にしているの
 Claude Code で次を実行します。
 
 ```
-/plugin marketplace add atrien-baba/atrien-skills
+/plugin marketplace add https://github.com/atrien-baba/atrien-skills.git
 /plugin install grilling@atrien-skills
 /plugin install grilling-viz@atrien-skills
 ```
+
+`atrien-baba/atrien-skills` という短い書き方でも追加できますが、GitHub の SSH 鍵を設定していない PC では失敗するため、上の HTTPS の URL を使ってください。
 
 grilling-viz の HTML 生成には Node.js が必要です。
 
