@@ -1,0 +1,9 @@
+{
+  "name": "grilling",
+  "description": "計画や方針を、推奨案つきの質問を一巡ずつ重ねて詰める。",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Matt Pocock (adapted by Atrien)"
+  }
+}

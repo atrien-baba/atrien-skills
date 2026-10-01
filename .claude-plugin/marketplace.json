@@ -1,0 +1,31 @@
+{
+  "name": "atrien-skills",
+  "owner": {
+    "name": "Atrien"
+  },
+  "metadata": {
+    "description": "Atrien で使っている Claude Code スキル集"
+  },
+  "plugins": [
+    {
+      "name": "grilling",
+      "source": "./plugins/grilling",
+      "description": "計画や方針を、推奨案つきの質問を一巡ずつ重ねて詰める。",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Matt Pocock (adapted by Atrien)"
+      }
+    },
+    {
+      "name": "grilling-viz",
+      "source": "./plugins/grilling-viz",
+      "description": "grilling の質問を、選択肢と自由入力で回答できる HTML にする。grilling と併用する。",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "mathbullet"
+      }
+    }
+  ]
+}

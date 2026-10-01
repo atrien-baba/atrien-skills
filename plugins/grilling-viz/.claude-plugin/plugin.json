@@ -1,0 +1,9 @@
+{
+  "name": "grilling-viz",
+  "description": "grilling の質問を、選択肢と自由入力で回答できる HTML にする。grilling と併用する。",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "mathbullet"
+  }
+}
