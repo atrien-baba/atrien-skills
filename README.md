@@ -6,8 +6,9 @@ Atrien で使っている Claude Code スキルを、プラグインとして入
 |---|---|
 | `grilling` | 計画や方針を、推奨案つきの質問を一巡ずつ重ねて詰める |
 | `grilling-viz` | grilling の質問を、選択肢と自由入力で回答できる HTML にする |
+| `grilling-design` | カタログ・資料・Webページなどの制作を、企画から校正まで段階ごとの質問で詰める。質問は grilling-viz の回答用HTMLで出す |
 
-grilling-viz は grilling の質問の組み立て方を前提にしているので、両方入れてください。
+grilling-viz と grilling-design は grilling の質問の組み立て方を前提にしているので、grilling と一緒に入れてください。grilling-design は質問を grilling-viz で表示するので、3つとも入れてください。
 
 ## 入れ方
 
@@ -17,6 +18,7 @@ Claude Code で次を実行します。
 /plugin marketplace add https://github.com/atrien-baba/atrien-skills.git
 /plugin install grilling@atrien-skills
 /plugin install grilling-viz@atrien-skills
+/plugin install grilling-design@atrien-skills
 ```
 
 `atrien-baba/atrien-skills` という短い書き方でも追加できますが、GitHub の SSH 鍵を設定していない PC では失敗するため、上の HTTPS の URL を使ってください。
@@ -33,3 +35,5 @@ grilling-viz の HTML 生成には Node.js が必要です。
 | `grilling-viz` | [mathbullet/skills](https://github.com/mathbullet/skills) `5ab997f` | なし（そのまま同梱） |
 
 元リポジトリが更新されても自動では追従しません。
+
+`grilling-design` は Atrien の自作です（MIT）。
