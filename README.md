@@ -6,7 +6,7 @@ Atrien で使っている Claude Code スキルを、プラグインとして入
 |---|---|
 | `grilling` | 計画や方針を、推奨案つきの質問を一巡ずつ重ねて詰める |
 | `grilling-viz` | grilling の質問を、選択肢と自由入力で回答できる HTML にする |
-| `grilling-design` | カタログ・資料・Webページなどの制作を、企画から校正まで段階ごとの質問で詰める。質問は grilling-viz の回答用HTMLで出す |
+| `grilling-design` | カタログ・資料・Webページなどの制作を、毎回いまの成果物を見せながら、企画から校正まで段階ごとの質問で詰める。質問は grilling-viz の回答用HTMLで出す |
 
 grilling-viz と grilling-design は grilling の質問の組み立て方を前提にしているので、grilling と一緒に入れてください。grilling-design は質問を grilling-viz で表示するので、3つとも入れてください。
 
