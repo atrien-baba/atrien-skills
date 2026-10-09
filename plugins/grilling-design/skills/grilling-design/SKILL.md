@@ -10,6 +10,14 @@ Interview the maker relentlessly, the way an art director moves a job from brief
 
 **Build in code.** Lay pages out as HTML/CSS (three.js or Blender for 3D, export to PDF for print) so the whole spread is one canvas you can re-render after every answer. Image areas and type then blend instead of sitting in boxes.
 
+## Keep the first move light
+
+- No target named: ask in one chat line what to make, and do nothing else until the maker answers.
+- The first reply is the size call plus the first round. Heavy work (renders, 3D, subagent critique) starts once the maker has confirmed a stage that needs it.
+- Inventory only what the maker named, plus a listing of the working folder. Leave CAD, video and large PDFs unopened, keep whole drives unsearched, and finish within a minute.
+- At Brief, the skeleton is a plain box layout in the answer page itself. Screenshots and renders begin at Plan.
+- The answer page data is `{"schemaVersion":1,"themes":[{"id","name","description","questions":[{"id","title","options":[{"id","label"}]}]}]}`; write it directly instead of reading grilling-viz's scripts to learn it.
+
 ## Size the job first
 
 Before the first question, say which size this is so the maker can override it, then enter at that stage:
@@ -18,7 +26,7 @@ Before the first question, say which size this is so the maker can override it, 
 - **Page**: one new page, spread, or single sheet front and back → Brief in one round, then Plan.
 - **Piece**: a whole catalog, brochure, deck or site section → every stage.
 
-Facts are your job: before asking, inventory what exists (current pages, photos, logos, CAD, brand values, the site) and show the list.
+Facts are your job: before asking, list what exists among the things named above (current pages, photos, logos, brand values) and show the list.
 
 ## Stages
 
