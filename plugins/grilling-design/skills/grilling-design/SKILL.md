@@ -1,53 +1,48 @@
 ---
 name: grilling-design
 description: Grill the maker of a visual deliverable (catalog, brochure, slides, web page) from brief to proof, showing the current render every round. Use when someone starts, reviews or refines a design, or brings vague design feedback to turn into fixes.
-argument-hint: "[brief|plan|direction|rough|proof|feedback] [target]"
+version: 0.3.0
+argument-hint: "[brief|plan|direction|proof|feedback|floor] [target]"
 ---
 
-Interview the maker relentlessly, the way an art director moves a job from brief to proof. The maker owns every style choice; you ask, recommend with the trade-off, build, and critique. Run every round as **grilling** (frontier rule and records from the `grilling` skill) and deliver it as a **grilling-viz** answer page (invoke `grilling-viz`; follow it for data, rendering, updates and checks). Mark your recommendation by ending that option's label with （推奨） and its trade-off; offer 「担当者に確認する」 wherever an owner may answer later. Keep one page per stage and update it in place.
+You are the art director; the maker owns every style choice. You ask, recommend with the trade-off, build in code, and critique against the reference. Every round is **grilling** (frontier rule and records from the `grilling` skill) delivered as a **grilling-viz** answer page; the page data format is in [reference/page-data.md](reference/page-data.md), so write it directly.
 
-**Show, then ask.** Every round opens with the current state as an image: at Brief, the inventory of what exists and an empty skeleton of the format; from Plan onward, the flat plan, the roughs, the page. Put renders in their own image or page and let the round's options name them. A round that asks about something the maker cannot see is not ready to send.
+## Two rules that hold every round
 
-**Build in code.** Lay pages out as HTML/CSS (three.js or Blender for 3D, export to PDF for print) so the whole spread is one canvas you can re-render after every answer. Image areas and type then blend instead of sitting in boxes.
+- **Show, then ask.** A round opens with the current state the maker can see: at Brief a plain box skeleton inside the answer page, from Plan onward a rendered image. A round about something the maker cannot see is not ready to send.
+- **Build in code.** Pages are HTML/CSS (three.js or Blender for 3D; PDF export for print) so the whole spread is one canvas you re-render after each answer. Image areas and type then blend instead of sitting in boxes.
 
-## Keep the first move light
+## First move
 
-- No target named: ask in one chat line what to make, and do nothing else until the maker answers.
-- The first reply is the size call plus the first round. Heavy work (renders, 3D, subagent critique) starts once the maker has confirmed a stage that needs it.
-- Inventory only what the maker named, plus a listing of the working folder. Leave CAD, video and large PDFs unopened, keep whole drives unsearched, and finish within a minute.
-- At Brief, the skeleton is a plain box layout in the answer page itself. Screenshots and renders begin at Plan.
-- The answer page data is `{"schemaVersion":1,"themes":[{"id","name","description","questions":[{"id","title","options":[{"id","label"}]}]}]}`; write it directly instead of reading grilling-viz's scripts to learn it.
-
-## Size the job first
-
-Before the first question, say which size this is so the maker can override it, then enter at that stage:
-
-- **Fix**: the page already exists and one part needs changing → render the current page first, then run one Feedback round only. Proof checks only what the change touches, and `decisions.md` gets one line.
-- **Page**: one new page, spread, or single sheet front and back → Brief in one round, then Plan.
-- **Piece**: a whole catalog, brochure, deck or site section → every stage.
-
-Facts are your job: before asking, list what exists among the things named above (current pages, photos, logos, brand values) and show the list.
+1. No target named → ask in one chat line what to make, and stop.
+2. Say the size out loud so the maker can override it, then enter at that stage:
+   - **Fix**: the page exists and one part changes → render it, run one Feedback round, check only what the change touches.
+   - **Page**: one new page, spread, or single sheet (front and back count as one) → Brief in one round, then Plan.
+   - **Piece**: a whole catalog, deck or site section → every stage.
+3. Fields the request already states (format, deadline, assets) are recorded, not asked again. Inventory only what the maker named plus a listing of the working folder, within a minute. CAD, video and large PDFs stay unopened; whole drives stay unsearched.
+4. Heavy work (renders, 3D, subagent critique) starts after the maker confirms a stage that needs it.
 
 ## Stages
 
-Each stage closes on its artifact, saved beside the project's `decisions.md` (create a `design/` folder in the working directory when the project has none); open the next only when the maker confirms it.
+Each stage closes on its artifact in the project's `design/` folder (beside `decisions.md`); open the next only when the maker confirms. The playbook for a stage is read when you enter it.
 
-1. **Brief** → `brief.md`: reader, the scene where it is read (handed over, presented, sent as PDF), the one action afterwards, format, assets that exist, reviewer, deadline. Done when every field has an answer or a named owner.
-2. **Plan** (flat plan): one row per page with its message in one sentence, its single **hero**, and its assets, rendered as small page skeletons. Done when every page has one sentence and one hero; a page needing two sentences splits or cuts.
-3. **Direction** → `direction.md`: three references with what exactly to borrow (image share of the page, number of type sizes, margins); then two or three roughs in code that differ on one declared axis (photo-led, diagram-led, type-led). The maker picks one and writes the **emphasis and rest** in one sentence: what is loud, what stays quiet, and that the quiet parts are still finished with care. Done when the pick and that sentence are recorded.
-4. **Proof**: build the chosen direction on one representative spread first, then the rest. Critique the render in a fresh context (a subagent or new session), side by side with the reference or previous version, including close-ups at the same angle. Ask, in order:
-   - **Five-second test**: what did the eye land on, whose page is it, what next?
-   - **Squint test**: blurred, does exactly one hero survive?
-   - **Actual size**: is the smallest text, including text inside images, readable?
-   - **Floor**: at most two typefaces, no tracking on Japanese text, no line break inside a word (`word-break: auto-phrase` with `lang="ja"`), only the agreed type sizes, spacing on an 8 grid.
-   - **Measured, not eyeballed**: positions and sizes of logos, buttons and photos taken as ratios from the reference.
+| Stage | Artifact | Done when | Playbook |
+|---|---|---|---|
+| Brief | `brief.md` | every field answered or owned | [reference/brief.md](reference/brief.md) |
+| Plan | flat plan in `plan.md` | each page has one sentence and one hero | [reference/plan.md](reference/plan.md) |
+| Direction | `direction.md` | a rough is picked and its emphasis sentence recorded | [reference/direction.md](reference/direction.md) |
+| Proof | the built pages | five tests pass, floor check clean | [reference/proof.md](reference/proof.md) |
 
-   Done when every question passes. Give a page two proof rounds; a third sends it back to Plan or Direction, because the problem sits upstream.
+A page gets two Proof rounds; a third sends it back to Plan or Direction, because the problem sits upstream.
 
 ## Feedback
 
-When anyone answers with an impression ("hard to read", "something is off", "make it pop"), translate it before acting: grill it into **where** on the page, **what was seen**, and **what is wanted**, asking whoever gave it or the maker as proxy. Collect small notes and handle them in one batch. Fix only translated items, and record what changed in `decisions.md`.
+Impressions ("hard to read", "something is off") are translated before anything is touched: **where**, **what was seen**, **what is wanted**. Protocol and the `decisions.md` entry format: [reference/feedback.md](reference/feedback.md).
+
+## Floor
+
+`node scripts/floor_check.mjs <page.html> [--print]` measures what the eye misses: typeface count, tracking on Japanese text, mid-word breaks, type sizes outside the agreed scale, spacing off the 8 grid, smallest text. Run it before every Proof round and paste its summary into the round. It needs `playwright-core` resolvable from the project (`npm i -D playwright-core`) and a Chrome or Edge on the machine.
 
 ## Library
 
-When a choice works in proof, append it to `references.md` with an image path and one line on why it works. A new brief starts from this library before searching for fresh references.
+A choice that survives Proof goes into `references.md` with an image path and one line on why it works. A new Brief starts from this library.

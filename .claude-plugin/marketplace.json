@@ -30,8 +30,8 @@
     {
       "name": "grilling-design",
       "source": "./plugins/grilling-design",
-      "description": "カタログ・資料・Webページなどの制作を、毎回いまの成果物を見せながら、企画から校正まで段階ごとの質問で詰める。質問は grilling-viz の回答用HTMLで出す。grilling・grilling-viz と併用する。",
-      "version": "0.2.1",
+      "description": "カタログ・資料・Webページなどの制作を、毎回いまの成果物を見せながら、企画から校正まで段階ごとの質問で詰める。段階ごとの手引きと、書体・字間・改行・余白を機械で測る floor_check を同梱。grilling・grilling-viz と併用する。",
+      "version": "0.3.0",
       "license": "MIT",
       "author": {
         "name": "Atrien"

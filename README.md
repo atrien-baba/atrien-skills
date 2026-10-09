@@ -6,7 +6,7 @@ Atrien で使っている Claude Code スキルを、プラグインとして入
 |---|---|
 | `grilling` | 計画や方針を、推奨案つきの質問を一巡ずつ重ねて詰める |
 | `grilling-viz` | grilling の質問を、選択肢と自由入力で回答できる HTML にする |
-| `grilling-design` | カタログ・資料・Webページなどの制作を、毎回いまの成果物を見せながら、企画から校正まで段階ごとの質問で詰める。質問は grilling-viz の回答用HTMLで出す |
+| `grilling-design` | カタログ・資料・Webページなどの制作を、毎回いまの成果物を見せながら、企画から校正まで段階ごとの質問で詰める。段階ごとの手引き（reference/）と、書体・字間・改行・余白を測る `scripts/floor_check.mjs` を同梱 |
 
 grilling-viz と grilling-design は grilling の質問の組み立て方を前提にしているので、grilling と一緒に入れてください。grilling-design は質問を grilling-viz で表示するので、3つとも入れてください。
 
@@ -23,7 +23,7 @@ Claude Code で次を実行します。
 
 `atrien-baba/atrien-skills` という短い書き方でも追加できますが、GitHub の SSH 鍵を設定していない PC では失敗するため、上の HTTPS の URL を使ってください。
 
-grilling-viz の HTML 生成には Node.js が必要です。
+grilling-viz の HTML 生成と grilling-design の floor_check には Node.js が必要です。floor_check はさらに、プロジェクトに `playwright-core`（`npm i -D playwright-core`）と、PC に Chrome か Edge が要ります。
 
 ## 出典とライセンス
 
